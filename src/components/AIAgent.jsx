@@ -42,7 +42,7 @@ const AIAgent = () => {
             const systemInstruction = "You are Rotom Dex, a highly knowledgeable Pokemon expert AI. Answer questions related to Pokemon, their stats, lore, general knowledge, and anime appearances. Be helpful, concise, enthusiastic, and occasionally use Pokemon-related puns or catchphrases. Format your responses with simple markdown like bolding for emphasis.";
 
             const model = genAI.getGenerativeModel({ 
-                model: 'gemini-2.5-flash',
+                model: 'gemini-1.5-flash',
                 systemInstruction: systemInstruction,
             });
 
