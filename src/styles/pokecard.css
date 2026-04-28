@@ -7,7 +7,7 @@
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -240%);
+    transform: translate(-50%, -50%);
     z-index: 100;
 
     /* Surface */
@@ -19,7 +19,6 @@
     /* Layout */
     display: flex;
     flex-direction: row;
-    position: relative;
     transition: scale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
