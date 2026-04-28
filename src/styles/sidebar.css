@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+.poke-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #000000; /* surface-container-low */
+    color: white;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.06);
+    overflow-y: auto;
+}
+
+.poke-sidebar-header {
+    padding: 0 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.poke-sidebar-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 800;
+    color: #cca900; 
+}
+
+.poke-sidebar-subtitle {
+    font-size: 0.75rem;
+    color: #e2e8e8;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.poke-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.poke-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    margin-left: 1rem;
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+    text-decoration: none;
+    color: #feffff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border-right: 4px solid transparent;
+}
+
+.poke-nav-item:hover {
+    background-color: #ff2727fe;
+    color: white;
+    transform: translateX(4px);
+}
+
+.poke-nav-item.active {
+    background-color: #ffffff;
+    color: #bb0100;
+    box-shadow: 0 4px 12px rgba(45, 47, 47, 0.05);
+    border-right: 4px solid #bb0100;
+}
+
+.poke-nav-item .material-symbols-outlined {
+    font-size: 1.2rem;
+}
+
+.poke-nav-item.active .material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}
+
+.poke-nav-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 800;
+}
+
+/* Custom Webkit Scrollbar */
+.poke-sidebar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+.poke-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+.poke-sidebar::-webkit-scrollbar-thumb {
+    background: #d3d5d5;
+    border-radius: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .poke-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 1rem;
+    }
+    
+    .poke-sidebar-header {
+        display: none;
+    }
+    
+    .poke-nav {
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .poke-nav-item {
+        border-radius: 9999px;
+        margin-left: 0;
+        padding: 0.5rem 1rem;
+        border: none;
+        white-space: nowrap;
+    }
+    
+    .poke-nav-item.active {
+        border: none;
+        background-color: #bb0100;
+        color: white;
+    }
+}

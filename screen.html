@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;0,800;1,800&amp;family=Be_Vietnam_Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed-dim": "#edce00",
+              "surface-container-highest": "#dbdddd",
+              "surface-bright": "#f6f6f6",
+              "secondary": "#6a5b00",
+              "on-tertiary-fixed-variant": "#0d23a9",
+              "on-error": "#ffefef",
+              "primary-fixed-dim": "#ff5b47",
+              "on-surface": "#2d2f2f",
+              "inverse-surface": "#0c0f0f",
+              "inverse-on-surface": "#9c9d9d",
+              "tertiary-fixed": "#a0abff",
+              "surface-container": "#e7e8e8",
+              "surface-tint": "#bb0100",
+              "error-dim": "#a70138",
+              "on-secondary-container": "#5b4e00",
+              "secondary-dim": "#5c4f00",
+              "outline-variant": "#acadad",
+              "on-primary-fixed": "#000000",
+              "inverse-primary": "#ff5540",
+              "on-surface-variant": "#5a5c5c",
+              "on-tertiary": "#f3f1ff",
+              "on-error-container": "#510017",
+              "on-tertiary-fixed": "#000958",
+              "on-secondary-fixed": "#463b00",
+              "surface-variant": "#dbdddd",
+              "secondary-fixed": "#fddc00",
+              "tertiary-fixed-dim": "#8f9bff",
+              "tertiary-dim": "#2e3fbe",
+              "primary-dim": "#a40100",
+              "on-secondary-fixed-variant": "#665800",
+              "surface-container-low": "#f0f1f1",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#ff7763",
+              "tertiary-container": "#a0abff",
+              "surface": "#f6f6f6",
+              "on-primary-container": "#4f0000",
+              "outline": "#767777",
+              "error-container": "#f74b6d",
+              "on-tertiary-container": "#00189b",
+              "on-secondary": "#fff3c5",
+              "surface-container-high": "#e1e3e3",
+              "on-primary-fixed-variant": "#600000",
+              "primary-container": "#ff7763",
+              "background": "#f6f6f6",
+              "on-primary": "#ffefed",
+              "surface-dim": "#d3d5d5",
+              "primary": "#bb0100",
+              "error": "#b41340",
+              "secondary-container": "#fddc00",
+              "on-background": "#2d2f2f",
+              "tertiary": "#3c4dcb"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Be Vietnam Pro"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-glow-primary {
+            text-shadow: 0 0 15px rgba(187, 1, 0, 0.3);
+        }
+        .stat-bar-container {
+            height: 6px;
+            background-color: #e1e3e3;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-neutral-900/80 shadow-xl shadow-neutral-500/5 h-20">
+<div class="flex justify-between items-center w-full px-10 h-20 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black text-[#bb0100] tracking-tighter italic font-headline">
+                The Kinetic Collector
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline tracking-tight headline-sm font-bold">
+<a class="text-[#bb0100] border-b-2 border-[#bb0100] pb-1 font-bold" href="#">Pokedex</a>
+<a class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors" href="#">Abilities</a>
+<a class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors" href="#">Items</a>
+<a class="text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors" href="#">Move Sets</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group hidden sm:block">
+<input class="bg-surface-container-high border-none rounded-sm px-4 py-2 w-64 focus:ring-4 focus:ring-secondary-container transition-all" placeholder="Search archive..." type="text"/>
+</div>
+<button class="active:scale-95 transform transition-transform hover:bg-neutral-100/50 p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</div>
+<div class="bg-[#f0f1f1] dark:bg-neutral-800 h-[1px] w-full"></div>
+</nav>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 flex flex-col gap-2 py-8 border-r border-neutral-200 dark:border-neutral-800 h-screen w-72 pt-24 bg-[#f6f6f6] dark:bg-neutral-900 z-40">
+<div class="px-8 mb-6">
+<h3 class="font-headline text-sm uppercase tracking-widest font-bold text-[#6a5b00] dark:text-[#fddc00]">Type Filters</h3>
+<p class="text-xs text-on-surface-variant mt-1">Sort by Elemental Affinity</p>
+</div>
+<nav class="flex flex-col gap-1">
+<!-- Fire is Active -->
+<a class="flex items-center gap-4 py-3 px-4 bg-white dark:bg-neutral-800 text-[#bb0100] rounded-l-full ml-4 shadow-sm border-r-4 border-[#bb0100] cursor-pointer active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Fire</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-l-full ml-4 transition-all hover:translate-x-1 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">water_drop</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Water</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-l-full ml-4 transition-all hover:translate-x-1 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">grass</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Grass</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-l-full ml-4 transition-all hover:translate-x-1 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Electric</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-l-full ml-4 transition-all hover:translate-x-1 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Psychic</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-4 text-neutral-500 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-l-full ml-4 transition-all hover:translate-x-1 cursor-pointer active:opacity-80" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-headline text-sm uppercase tracking-widest font-bold">Dragon</span>
+</a>
+</nav>
+<div class="mt-auto px-8 pt-8">
+<button class="w-full text-left font-headline text-xs uppercase tracking-widest font-bold text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">filter_list_off</span>
+                    Clear All Filters
+                </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-72 pt-24 px-12 pb-20">
+<div class="max-w-[1400px] mx-auto">
+<header class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="font-headline text-xs uppercase tracking-[0.2em] font-bold text-primary mb-2 block">Premium Vault</span>
+<h1 class="font-headline text-5xl font-extrabold tracking-tighter text-on-surface leading-tight">Fire Type <span class="text-[#bb0100] italic">Archive</span></h1>
+</div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-8">
+<div>
+<p class="text-[10px] uppercase tracking-widest font-bold text-outline">Total Found</p>
+<p class="text-2xl font-headline font-black">151 <span class="text-xs font-normal text-on-surface-variant tracking-normal">Specimens</span></p>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="vibrant fire creature concept art with glowing orange eyes and smoke trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjoCUdQafq73qTlBjTPQMUfb5bCtUgLYv-4j5vK7bFauXphgvTswG1tpSKKXA8hq3evJULwl7zagdLpKCyBCKfmU6efVxUgd2cj0ZNZPl7aG1ZWYJATcVmRJGoP7FdXnXknuZbal4betZxDWyKrfE5y34UPLVlfmbPgrE7e_rC6yNCaRlG8G78qndHmTzlp6R_QkXoZGG75_bA9RkDgra_j--hXa062jyZktcwq48T5rIAKvBs3KU1LDg4SS1pqmfn6sQVoepCQDBq"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="sleek fox-like creature with fiery tails and elegant pose" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmVtvXhGNJcabLDFCYXDlQlKuCyKpskaJ0EBfSGWLSNL48MTsS6q-i7rkielTv7EiDWmKj9Ya0q1sbT9RnH41w3hFhBUZpITBD4reogBELNoBaNlfXDa61K_tBHiRtO8Xw_1XfKfGwJcXRAyzgwy1SPeUnzLu2sBMTS_w53cl03DrNOECMNAHxe-qlSnTmaTq0ddw2O3UmV877o3vZcijsBhNCTts0Sqs0EwLernvBI-5mP3xV7SsKoORZuB0lofT0iO9bivDnG-m-"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface bg-primary text-on-primary flex items-center justify-center text-xs font-bold font-headline">
+                                +12
+                            </div>
+</div>
+</div>
+</header>
+<!-- Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card: Charizard -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#006</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-[10px] uppercase tracking-widest font-bold rounded-full">Flying</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Charizard</h2>
+<!-- Image Breaking Container Bounds -->
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="dragon-like fire creature with large wings and flame on tail, dramatic cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyGzQCaydB8X0Rw346agb8bGTAy0abMX433UC8HW5QcATKCVB_vhuIoM8AVzl8ZJnOJayeoEu4iDWTHn6qGxLBiA3n1j5knAzBhHQb_WmvtRI0BPC7NV_ow0RLHwHP9LMVmPbg1M3yv_t79jsKoS5yEqeG9dhJTc3QCykHOvQwIAgLQvWXVfX5bjCU-U0VOa-kZfhEQVHgmx_pTHbU40eeLjuFU3LDnZ6YJ96UZ7d_UDrbY9R_FNhoP7YU15jCIooFGj_RNxh0arNb"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>78</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 78%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>84</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 84%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>78</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 78%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>100</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 100%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Arcanine -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#059</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Arcanine</h2>
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="noble fire wolf creature with thick mane and tiger-like stripes, elegant and powerful" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd9ZLjFLPwhDNaox_z3oRG9bP2TNGACL9qvjo3GzoEBJKzAlzs_yNxIcHAF9BqI1nrhIiMRTqwKsB4nAy_1tFl0GNq3GqAmA8TRffa820UrRlkCYLkhh5FbH62lD_MXElyJXQsrmcelFHEbnA_URL9pVOPZd2kh1SZ3pFs8SXZOC0SpGYEZKrwFdeEUjMqp4Itf3X30Q_A8PlqA-7Rtb3MdMRnlhIicCuwfUM3wtrlTkSliJWFBO3j9KW0DHBeDUOnjiU6UkUrZmfu"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>90</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 90%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>110</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 95%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>80</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 80%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>95</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 95%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Magmar -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#126</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Magmar</h2>
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="lava based humanoid creature with burning surface and intense volcanic glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOL_Yf_f9emhUmBOTUR9spD8LklmK0umxOC1Zj-8o19rml8Lexl5WkVKVc2OFZPfkjKVCehzQTAlVIk4_py9FJOUXt52ohjwbhT0oYsivD5kXAhjh86Cjdw9VMqo7CZSGpYFzrjG8l8KS6ZTmElpu98VB-9YP6hrSZ5YQGHMWtHJW2iFup5yDm0QS66kJZ-C-qpOoFFz_gBxdRgT3d-TSxXsK6M3WU7evw-g2zu1uUMalcHNO3p2AQj_Es-m_9844CuFrkN6v9xw2s"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>65</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 65%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>95</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 95%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>57</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 57%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>93</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 93%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Flareon -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#136</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Flareon</h2>
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="fluffy orange creature with fiery mane and deep orange fur, soft aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApoaapBcWSPbFcKkkFKeN9GfoWlnu-umcvAXjrbS3_GDdSSGLBM0_Rr4fBYN2oiaxo1qx3dyHZEfaL7pj7dYZN5Etq_l5i0QP7CUWZdShm4f4swKTVL7Q5ykrvmWl1mlecYP7pO-ajm6r2gJ62xeZdZbPzQW3Uq8Ms_UpwBheJkwi0zKiBrqGrkDmQ6EH7MSIjv6cTPY3YEEnoqmpbSNHSptg9RifoCtO5flE9XEoFKmgy_CsSKoThgs_n6xZfuHhNp7OwhNDf2z8p"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>65</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 65%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>130</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 100%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>60</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 60%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>65</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 65%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Ninetales -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#038</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Ninetales</h2>
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="elegant golden nine-tailed fox creature with ethereal atmosphere and mystical glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6Mnl320a8Nr9qz3joXdVyeANL-NqJwgZhonlL5q-zrZD5p6Zz6H8B7VJihkFG_LG3ccLBE-C7vlJRuRXEMp6I5owfR9Pd5leOOhUftxlmOyNciuheHwu5PdF1oTbQDwWUrcU6y7KUAI_CdDULnpecD40gyoDAUOPMyjzdM2I8bM_5OlTGSMJXfjQ9SoMVBAyXH2XFi01tmuxVrJZBZcFGA4trQWI4Sn5vS3j30yDJ643qXhcPQaCiBIs6cqObKy3XG4i1xzc-1i-r"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>73</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 73%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>76</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 76%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>75</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 75%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>100</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 100%"></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card: Rapidash -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-xl shadow-neutral-500/5 relative group transition-all duration-500 hover:-translate-y-2">
+<div class="absolute top-0 right-0 p-4">
+<span class="font-headline text-4xl font-black text-on-surface/5 italic select-none">#078</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] uppercase tracking-widest font-bold rounded-full">Fire</span>
+</div>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight mb-8">Rapidash</h2>
+<div class="absolute -top-12 -right-8 w-48 h-48 pointer-events-none group-hover:scale-110 transition-transform duration-500">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="majestic horse creature with a mane and tail made of bright orange flames, dynamic running pose" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNPexYkj-k1nGdaSrCBueSOf_HtWwZGvNaSGN7rKlFMoX3ztm0g2-FOmVU3el_mzgHkuSWeb1vQq6ULtLLU04IKStd8B2po1e29G-frlHNMAZCBbA13xl0ti4Na5WXJmiVWtT0gfwPYQJauBPk89REt8FGwpZH1EqFryjrY33OYawsFTuUjnBNxyjwANFIfqAqhaTjMYTLZyuEMImg5U4w6t0pWCa4eqyAJOG5Wbqr48_vocYw4BRcrp0xIIGoskZ3lgdgqKGj0Cgr"/>
+</div>
+<div class="space-y-4 max-w-[180px]">
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>HP</span>
+<span>65</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-primary" style="width: 65%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Attack</span>
+<span>100</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary" style="width: 100%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Defense</span>
+<span>70</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-tertiary" style="width: 70%"></div></div>
+</div>
+<div>
+<div class="flex justify-between text-[10px] uppercase tracking-wider font-bold mb-1">
+<span>Speed</span>
+<span>105</span>
+</div>
+<div class="stat-bar-container"><div class="h-full bg-secondary-fixed-dim" style="width: 100%"></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button - suppressed as per instruction for Archive screens -->
+</body></html>
