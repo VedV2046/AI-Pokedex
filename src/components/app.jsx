@@ -7,6 +7,7 @@ import Pokedex from "./pokedex";
 import Sidebar from "./sidebar";
 import TypePage from "./typePage";
 import Footer from "./footer";
+import AIAgent from "./AIAgent";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <Route path="/type/:typeName" element={<TypePage />} />
             </Routes>
             <Footer />
+            <AIAgent />
         </div>
     </div>
   );
